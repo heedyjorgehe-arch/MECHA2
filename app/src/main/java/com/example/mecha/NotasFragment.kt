@@ -1,14 +1,13 @@
 package com.example.mecha
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-//
+
 class NotasFragment : Fragment(R.layout.fragment_notas) {
 
     private lateinit var edtTitulo: EditText
@@ -20,7 +19,6 @@ class NotasFragment : Fragment(R.layout.fragment_notas) {
 
         edtTitulo = view.findViewById(R.id.edtTitulo)
         edtDescripcion = view.findViewById(R.id.edtDescripcion)
-
         db = NotasDBHelper(requireContext())
 
         view.findViewById<Button>(R.id.btnGuardar).setOnClickListener {
@@ -29,12 +27,10 @@ class NotasFragment : Fragment(R.layout.fragment_notas) {
 
             if (t.isNotEmpty() && d.isNotEmpty()) {
                 if (db.insertNota(t, d)) {
-                    Toast.makeText(requireContext(), "Nota guardada con éxito", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Nota guardada", Toast.LENGTH_SHORT).show()
                     edtTitulo.text.clear()
                     edtDescripcion.text.clear()
                 }
-            } else {
-                Toast.makeText(requireContext(), "Llena todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -55,6 +51,14 @@ class NotasFragment : Fragment(R.layout.fragment_notas) {
                 edtTitulo.text.clear()
                 edtDescripcion.text.clear()
             }
+        }
+
+        view.findViewById<Button>(R.id.btnVer).setOnClickListener {
+            val containerId = (view.parent as ViewGroup).id
+            parentFragmentManager.beginTransaction()
+                .replace(containerId, VerNotasFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
