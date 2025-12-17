@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
+//
 class NotasAdapter(
     private val listaNotas: MutableList<Nota>
 ) : RecyclerView.Adapter<NotasAdapter.NotaViewHolder>() {

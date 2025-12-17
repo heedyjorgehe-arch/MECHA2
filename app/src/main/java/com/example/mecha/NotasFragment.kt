@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-
+//
 class NotasFragment : Fragment(R.layout.fragment_notas) {
 
     private lateinit var edtTitulo: EditText

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
+//
 class VerNotasFragment : Fragment(R.layout.fragment_ver_notas) {
 
     private lateinit var recyclerView: RecyclerView
